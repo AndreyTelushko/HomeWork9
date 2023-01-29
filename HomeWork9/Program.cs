@@ -24,6 +24,6 @@ namespace HomeWork9
                 NumRowButReversed(inp);
                 return -1;
             }
-        
+         
     }
 }
