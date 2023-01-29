@@ -10,26 +10,20 @@ namespace HomeWork9
     {
         static void Main()
         {
-            Console.Write("Введите первое положительное число: ");
-            int m = int.Parse(Console.ReadLine());
-            Console.Write("Введите второе положительное число: ");
+            Console.WriteLine("Введите число до которого вывести натуральные числа: ");
             int n = int.Parse(Console.ReadLine());
-
-            Console.WriteLine($"Результат: {AkkFun(m, n)}");
+            Console.Clear();
+            NumRowButReversed(n);
             Console.ReadKey();
         }
 
-        public static int AkkFun(int m, int n)
+        public static int NumRowButReversed(int n)
         {
-            if (m == 0)
-            {
-                return n + 1;
-            }
-            if (m > 0 && n == 0)
-            {
-                return AkkFun(m - 1, 1);
-            }
-            return AkkFun(m - 1, AkkFun(m, n - 1));
+            if (n == 0) return 1;
+            else Console.Write(n-- + " ");
+            NumRowButReversed(n);
+            return -1;
         }
+
     }
 }
