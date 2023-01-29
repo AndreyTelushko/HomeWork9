@@ -10,33 +10,26 @@ namespace HomeWork9
     {
         static void Main()
         {
-            Console.WriteLine("Введите диапазон: ");
-            Console.Write("От: ");
-            int inp1 = int.Parse(Console.ReadLine());
-            Console.Write("До: ");
-            int inp2 = int.Parse(Console.ReadLine());
-            int cntr = 0;       // Инициализация счетчика
-            Console.Clear();
+            Console.Write("Введите первое положительное число: ");
+            int m = int.Parse(Console.ReadLine());
+            Console.Write("Введите второе положительное число: ");
+            int n = int.Parse(Console.ReadLine());
 
-            Console.WriteLine($"Сумма диапазона: {SumOfRange(inp1, inp2, ref cntr)}");
+            Console.WriteLine($"Результат: {AkkFun(m, n)}");
             Console.ReadKey();
         }
 
-        public static int SumOfRange(int inp1, int inp2, ref int cntr)
+        public static int AkkFun(int m, int n)
         {
-            // Исключение ошибки с первым числом больше второго
-            int temp = 0;
-            if (inp1 > inp2)
+            if (m == 0)
             {
-                temp = inp1;
-                inp1 = inp2;
-                inp2 = temp;
+                return n + 1;
             }
-            cntr += inp1; // Счетчик
-
-            if (inp1 == inp2) return cntr;
-            else SumOfRange(inp1 + 1, inp2, ref cntr); // Точка входа в рекурсию
-            return cntr;
+            if (m > 0 && n == 0)
+            {
+                return AkkFun(m - 1, 1);
+            }
+            return AkkFun(m - 1, AkkFun(m, n - 1));
         }
     }
 }
